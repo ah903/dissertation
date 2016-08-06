@@ -1,7 +1,8 @@
-angular.module("LockChain",[]).controller("LockController", function($scope){
+angular.module("LockChain").controller("LockController", function($scope){
 
+	console.log("Entered LockController");
 	$scope.household = initialise();
-
+	
 	function initialise(){
 		
 		var locations = [];

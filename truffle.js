@@ -5,6 +5,9 @@ module.exports = {
     // Copy ./app/index.html to ./build/index.html (LHS)
     ////////////////////////////////////////////////////////////////////////////////////
     "index.html": "index.html",
+    "home.html" : "home.html",
+    "details.html":"details.html",
+    "access.html" : "access.html",
     
     ////////////////////////////////////////////////////////////////////////////////////
     // Concatenate and Copy js/app.js to app.js in the build folder
@@ -12,7 +15,9 @@ module.exports = {
     "app.js": [
          "js/vendor/jquery.min.js",
          "js/vendor/angular.min.js",
+         "js/vendor/angular-route.min.js",
          "js/vendor/bootstrap.min.js",
+         "js/app.js",
          "js/controllers/lockcontroller.js"
     ],
 
