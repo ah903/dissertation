@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="MSc Dissertation">
+    <meta name="author" content="Andrew Hall">
+    <link rel="icon" href="images/favicon.png">
+
+    <title>LD042 Dissertation Prototype</title>
+
+    <!-- Bootstrap core CSS  Incorprated Ti app.css through build process-->
+    <link href="./app.css" rel="stylesheet" type="text/css">
+
+    <!-- JQuery, BootStrap AngularJS Incorprated into app.js through build process-->
+    <script src="./app.js"></script>
+  </head>
+  
+  <body data-ng-app="LockChain">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LD042 Dissertation Project</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Lockchain</h1>
+        <p>This project is a demonstration proof of concept designed to evaluate how blockchain technology could be used to provide an identity and access management framwork for internet of things applications. This demonstration is based on s smart homes use case illustrating how remote locking and unlocking could be achieved and how these rights might be granted to different people or applications</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+
+    <div class="container" data-ng-controller="LockController">
+      <h1>Your Household</h1>
+      <input type="text" placeholder="Input Your Name" data-ng-model="name"/> {{name}}
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-4" ng-repeat= "device in household">
+          <h2>{{device.Location}}</h2>
+          <p>{{device.Description}}</p>
+          <p>
+            <img width=10% ng-src="{{device.Locked?'images/locked.png':'images/unlocked.png'}}"/>{{device.Locked ? " Locked" : " Unlocked"}}
+          </p>
+          <button ng-click="toggle($index)" class="btn btn-default">{{device.Locked ? "Unlock" : "Lock"}}</button>
+          <a class="btn btn-default" href="#" role="button">Details</a>
+          <a class="btn btn-default" href="#" role="button">Access</a>
+        </div>
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; Andrew Hall 2016</p>
+      </footer>
+    </div>
+  </body>
+</html>
